@@ -1,0 +1,7 @@
+curtail (1.16.2-1) unstable; urgency=medium
+
+  * Repackage Curtail 1.16.2 for universal Linux distribution
+  * Build AppImage and Debian packages
+  * Add external compression tools as dependencies (oxipng, pngquant, jpegoptim, webp, scour)
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Mon, 29 Jul 2024 00:00:00 +0000

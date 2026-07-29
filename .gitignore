@@ -1,0 +1,36 @@
+# Build artifacts
+*.AppImage
+*.deb
+*.tar.gz
+*.tar.xz
+*.tar.zst
+appimagetool
+curtail-src/
+curtail-*/
+release_notes.md
+
+# Deb build
+*.ddeb
+*.build
+*.buildinfo
+*.changes
+debian/curtail/
+debian/*.log
+debian/files
+debian/*.debhelper
+debian/*.substvars
+
+# AppDir
+appdir/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
