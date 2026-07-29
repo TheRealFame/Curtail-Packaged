@@ -2,6 +2,8 @@
 
 Repackages the official Curtail image compressor into **AppImage** and **Debian** formats with GitHub Actions CI/CD.
 
+> This README was generated with AI assistance.
+
 ## Packages Built
 
 | Format | Use Case |
@@ -33,7 +35,17 @@ sudo apt-get install -f
 Curtail uses external CLI tools for compression — **not bundled** per Debian policy:
 
 ```bash
+# Ubuntu/Debian/Mint
 sudo apt install oxipng pngquant jpegoptim webp scour
+
+# Fedora/RHEL
+sudo dnf install oxipng pngquant jpegoptim libwebp scour
+
+# Arch/Manjaro
+sudo pacman -S oxipng pngquant jpegoptim libwebp scour
+
+# openSUSE
+sudo zypper install oxipng pngquant jpegoptim libwebp-tools scour
 ```
 
 | Tool | Format | Purpose |

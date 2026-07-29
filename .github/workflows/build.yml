@@ -14,14 +14,14 @@ permissions:
 jobs:
   deb:
     name: "Debian Package (amd64)"
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.10
     steps:
       - uses: actions/checkout@v4
 
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y devscripts debhelper-compat meson ninja-build python3 pkg-config libglib2.0-dev appstream libadwaita-1-dev python3-dev python3-gi blueprint-compiler gettext
+          sudo apt-get install -y devscripts debhelper-compat meson ninja-build python3 pkg-config libglib2.0-dev appstream libadwaita-1-dev python3-dev python3-gi blueprint-compiler gettext desktop-file-utils build-essential
 
       - name: Download upstream source
         run: |
@@ -59,14 +59,14 @@ jobs:
 
   appimage:
     name: "AppImage (amd64)"
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.10
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y wget fuse libfuse2 meson ninja-build python3 pkg-config libglib2.0-dev appstream libadwaita-1-dev python3-dev python3-gi blueprint-compiler gettext
+          sudo apt-get install -y wget fuse libfuse2 meson ninja-build python3 pkg-config libglib2.0-dev appstream libadwaita-1-dev python3-dev python3-gi blueprint-compiler gettext desktop-file-utils build-essential
 
       - name: Download upstream source
         run: |
@@ -84,10 +84,13 @@ jobs:
           mkdir -p appdir/usr/bin appdir/usr/share/applications appdir/usr/share/icons/hicolor/scalable/apps appdir/usr/share/metainfo
           cp ../appdir/AppRun appdir/AppRun
           chmod +x appdir/AppRun
-          cp ../appdir/curtail.desktop appdir/curtail.desktop
+          cp ../appdir/com.github.huluti.Curtail.desktop appdir/com.github.huluti.Curtail.desktop
           cp ../appdir/com.github.huluti.Curtail.svg appdir/com.github.huluti.Curtail.svg
-          # AppStream metainfo (use built version from meson)
           cp curtail-src/builddir/data/com.github.huluti.Curtail.appdata.xml appdir/usr/share/metainfo/com.github.huluti.Curtail.appdata.xml
+
+      - name: Compile GSettings schemas
+        run: |
+          glib-compile-schemas appdir/usr/share/glib-2.0/schemas/
 
       - name: Download appimagetool
         run: |
@@ -118,7 +121,7 @@ jobs:
   release-notes:
     name: "Generate Release Notes"
     if: startsWith(github.ref, 'refs/tags/')
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -152,7 +155,10 @@ jobs:
           echo "- webp (WebP)" >> release_notes.md
           echo "- scour (SVG)" >> release_notes.md
           echo "" >> release_notes.md
-          echo "Install with: \`sudo apt install oxipng pngquant jpegoptim webp scour\`" >> release_notes.md
+          echo "Install with:" >> release_notes.md
+          echo "\`sudo apt install oxipng pngquant jpegoptim webp scour\`" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "_Generated with AI assistance_" >> release_notes.md
 
       - name: Upload release notes
         uses: actions/upload-artifact@v4
