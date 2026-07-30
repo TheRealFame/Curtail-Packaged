@@ -77,7 +77,7 @@ jobs:
           cd curtail-src
           meson setup builddir --prefix=/usr
           ninja -C builddir
-          DESTDIR=$(pwd)/appdir ninja -C builddir install
+          DESTDIR=$(pwd)/../appdir ninja -C builddir install
 
       - name: Create AppDir structure
         run: |
