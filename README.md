@@ -14,7 +14,7 @@ Repackages the official Curtail image compressor into **AppImage** and **Debian*
 ## Quick Start
 
 ### Download Latest Release
-Go to [Releases](https://github.com/TheRealFame/curtail-packaging/releases) and grab:
+Go to [Releases](https://github.com/TheRealFame/Curtail-Packaged/releases) and grab:
 - `curtail-x86_64.AppImage` — run anywhere
 - `curtail_*.deb` — install on Debian/Ubuntu
 
@@ -59,8 +59,8 @@ sudo zypper install oxipng pngquant jpegoptim libwebp-tools scour
 ## Build Locally
 
 ```bash
-git clone https://github.com/TheRealFame/curtail-packaging
-cd curtail-packaging
+git clone https://github.com/TheRealFame/Curtail-Packaged
+cd Curtail-Packaged
 
 # Build AppImage
 ./build-appimage.sh
