@@ -126,7 +126,7 @@ If you encounter a packaging issue:
 1. Check this file first
 2. Run with verbose output: `./curtail-x86_64.AppImage --verbose`
 3. Check `~/.local/share/curtail/logs/`
-4. Open issue at https://github.com/TheRealFame/Curtail-Packaged/issues
+4. Open issue at https://github.com/TheRealFame/curtail-packaging/issues
 
 Include:
 - Distro & version
