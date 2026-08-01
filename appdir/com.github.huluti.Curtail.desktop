@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Curtail
+Exec=curtail %U
+Comment=Compress your images
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Graphics;
+StartupNotify=true
+MimeType=image/jpeg;image/png;image/webp;image/svg+xml;
+StartupWMClass=curtail
+DBusActivatable=true
+Icon=com.github.huluti.Curtail
+Keywords=compress;optimize;image;photo;
