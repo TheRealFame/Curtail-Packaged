@@ -82,10 +82,7 @@ jobs:
       - name: Create AppDir structure
         run: |
           mkdir -p appdir/usr/bin appdir/usr/share/applications appdir/usr/share/icons/hicolor/scalable/apps appdir/usr/share/metainfo
-          cp ../appdir/AppRun appdir/AppRun
           chmod +x appdir/AppRun
-          cp ../appdir/com.github.huluti.Curtail.desktop appdir/com.github.huluti.Curtail.desktop
-          cp ../appdir/com.github.huluti.Curtail.svg appdir/com.github.huluti.Curtail.svg
           cp curtail-src/builddir/data/com.github.huluti.Curtail.appdata.xml appdir/usr/share/metainfo/com.github.huluti.Curtail.appdata.xml
 
       - name: Compile GSettings schemas
