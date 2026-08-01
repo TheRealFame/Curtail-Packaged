@@ -36,10 +36,6 @@ jobs:
           cd curtail-src
           debuild -us -uc -b
 
-      - name: Copy .deb to workspace
-        run: |
-          cp ../curtail_*.deb .
-
       - name: Upload Debian artifact
         uses: actions/upload-artifact@v4
         with:
